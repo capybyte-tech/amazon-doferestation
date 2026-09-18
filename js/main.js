@@ -93,6 +93,7 @@ function applyFocus(){
   g("#ensoNeg").attr("opacity", dimmed && focus==="fires" ? .25 : 1);
   d3.select("#embers").style("opacity", !dimmed || focus==="fires" ? 1 : .35);
   emberBoost = dimmed && focus==="fires" ? 2.2 : 1;
+  if (typeof mobileUpdate === "function") mobileUpdate();
 }
 
 // ---------- bottom legend ----------
@@ -289,6 +290,7 @@ function render(){
   xa.select(".xl").attr("fill", y => y===year ? "#ffffff" : "#d4dada").attr("font-weight", y => y===year ? 600 : 400);
   renderStates();
   renderCallout();
+  if (typeof mobileUpdate === "function") mobileUpdate();
 }
 
 // ---------- interaction ----------
@@ -335,6 +337,7 @@ let emberBoost = 1;
       hue: 10 + Math.random()*30};
   }
   function tick(){
+    if (document.documentElement.classList.contains("is-mobile")){ requestAnimationFrame(tick); return; }
     ctx.clearRect(0,0,cv.width,cv.height);
     const target = Math.round(70*emberBoost);
     while (pts.length < target) pts.push(spawn());
