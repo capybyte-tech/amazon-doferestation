@@ -1,0 +1,34 @@
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:300;font-display:swap;src:url(../fonts/ibm-plex-mono-latin-300-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2');}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/ibm-plex-mono-latin-600-normal.woff2) format('woff2');}
+  :root{
+    --bg:#000; --panel:#030708;
+    --ink:#e9eeee; --muted:#9aa4a7; --faint:#5d676a;
+    --green:#5fe38c; --orange:#f4a52a; --red:#ff4a3a; --cyan:#3ed6ef;
+    --rule:rgba(255,255,255,.22); --grid:rgba(255,255,255,.07);
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#000; } }
+  :root[data-theme="dark"]{ --bg:#000; }
+  html,body{margin:0;height:100%;background:var(--bg);overflow:hidden}
+  body{font-family:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;color:var(--ink)}
+  #wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  #stage{position:absolute;left:0;top:0;width:1672px;height:941px;transform-origin:0 0;background:var(--panel);overflow:hidden}
+  #hero{position:absolute;left:0;top:0;width:1672px;height:545px;display:block;user-select:none;-webkit-user-drag:none}
+  #embers{position:absolute;left:880px;top:40px;width:792px;height:505px;pointer-events:none;transition:opacity .4s}
+  #ui{position:absolute;inset:0;width:1672px;height:941px}
+  svg text{font-family:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+  .caps{letter-spacing:1.4px}
+  .dim{transition:opacity .35s}
+  .row{cursor:pointer}
+  .row:focus-visible rect.hit{stroke:rgba(255,255,255,.55);stroke-width:1}
+  .lg:focus-visible circle.ring{stroke-width:3}
+  .row:focus:not(:focus-visible) rect.hit{stroke:none}
+  .row rect.hit{fill:transparent}
+  .lg{cursor:pointer}
+  #hit{cursor:crosshair;touch-action:pan-y}
+  svg:focus{outline:none}
+  svg:focus-visible #cursorLine{stroke-width:2.2}
+  @keyframes pulse{0%{r:11;opacity:.9}100%{r:26;opacity:0}}
+  #pulse{animation:pulse 2.4s ease-out infinite}
+  @media (prefers-reduced-motion: reduce){ #pulse{animation:none;opacity:0} .dim{transition:none} }
