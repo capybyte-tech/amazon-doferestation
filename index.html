@@ -113,8 +113,45 @@
 </div>
 </div>
 
+<main id="m" aria-label="Amazonia dashboard">
+  <header class="m-head">
+    <h1>AMAZONIA // LIVE CANOPY</h1>
+    <p>Brazilian Legal Amazon · 1999-2019</p>
+    <div class="m-dashes" aria-hidden="true"><i></i><i></i><i></i></div>
+  </header>
+  <div class="m-hero" id="mHero">
+    <img src="assets/hero.jpg" alt="Isometric render of Amazon canopy: intact forest on the left, burning cleared plots on the right">
+    <div class="m-marker" id="mMarker" aria-hidden="true"></div>
+  </div>
+  <section class="m-callout" aria-live="polite">
+    <h2 id="mCoTitle"></h2>
+    <p id="mCoL1"></p><p id="mCoL2"></p><p id="mCoL3"></p>
+  </section>
+  <section class="m-sec">
+    <div class="m-cap">DEFORESTATION BY STATE</div>
+    <div class="m-sub" id="mStateSub"></div>
+    <div id="mStateRows" class="m-rows"></div>
+  </section>
+  <section class="m-sec m-kpis">
+    <div class="m-kpi"><div class="big" id="mK1"></div><div class="small">TOTAL DEFORESTATION 2004-2019</div></div>
+    <div class="m-kpi"><div class="big" id="mK2"></div><div class="small">TOTAL 1999-2019</div></div>
+    <div class="m-kpi"><div class="big" id="mK3"></div><div class="small" id="mK3a"></div></div>
+  </section>
+  <section class="m-sec">
+    <div class="m-legend" id="mLegend"></div>
+    <div class="m-year">
+      <label for="mYear">Year</label>
+      <input type="range" id="mYear" min="1999" max="2019" step="1" value="2019">
+      <output id="mYearOut" for="mYear">2019</output>
+    </div>
+    <div id="mCharts"></div>
+    <div class="m-blegend" id="mBLegend"></div>
+  </section>
+</main>
+
 <script src="vendor/d3.min.js"></script>
 <script src="data/data.js"></script>
 <script src="js/main.js"></script>
+<script src="js/mobile.js"></script>
 </body>
 </html>
